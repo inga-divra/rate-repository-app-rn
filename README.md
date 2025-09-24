@@ -21,7 +21,7 @@ The project is a React Native application developed step by step through the cou
 
 Here is the current look of the app running on my phone:
 
-![App Screenshot](./assets/10.1.jpeg)
+<img src="./assets/app-screenshot-1.jpeg" alt="App Screenshot" width="200"/>
 
 ---
 
