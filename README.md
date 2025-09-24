@@ -14,7 +14,12 @@ The project is a React Native application developed step by step through the cou
 
 **Extra (just for fun):**
 - Added a title text: `"I love coding, coffee and cats! 💻☕😸"`  
-- Inserted an image of a coding cat 
+- Inserted an image of a coding cat into the app 🐱💻  
+
+### Screenshot  
+Here is the current look of the app running on my phone:  
+
+![App Screenshot](./assets/app-screenshot.jpeg)
 
 ---
 
