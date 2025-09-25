@@ -25,6 +25,20 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.2: Setting up ESLint
+
+- Installed **ESLint** and related plugins:  
+  `eslint`, `@babel/eslint-parser`, `eslint-plugin-react`, `eslint-plugin-react-native`
+- Created a configuration file `.eslintrc.json` with basic React/React Native rules.
+- Added a linting script in `package.json`:
+
+  ```json
+  "scripts": {
+    "lint": "eslint ./src/**/*.{js,jsx} App.js --no-error-on-unmatched-pattern"
+  }
+
+  ```
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
