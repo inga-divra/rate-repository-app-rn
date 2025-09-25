@@ -56,6 +56,22 @@ Here is the current look of the app running on my phone:
 
 <img src="./assets/app-screenshot-2.jpeg" alt="Repositories List Screenshot" width="200"/>
 
+---
+
+## Exercise 10.4: The App Bar
+
+- Implemented a new **AppBar** component to display navigation tabs at the top of the app.
+- Created a reusable **AppBarTab** component to make it easier to add more tabs in the future.
+- Styled the app bar with background color from the `theme` and adjusted padding.
+- Updated the **Text** component to support a `light` color variant for white text.
+- Integrated the AppBar into **Main.jsx** and removed the old `marginTop` since the app bar now handles status bar spacing.
+
+### Screenshot
+
+<img src="./assets/app-screenshot-3.jpeg" alt="App Bar Screenshot" width="200"/>
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
