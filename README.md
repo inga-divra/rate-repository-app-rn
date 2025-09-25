@@ -39,6 +39,23 @@ Here is the current look of the app running on my phone:
 
   ```
 
+---
+
+## Exercise 10.3: Reviewed repositories list
+
+- Implemented two new components:
+
+  - `RepositoryList` (renders the list using **FlatList**)
+  - `RepositoryItem` (renders a single repository’s details)
+
+- Displayed for each repository: **full name, description, language, stars, forks, reviews, rating**.
+
+- Verified that the list renders correctly on mobile.
+
+### Screenshot
+
+<img src="./assets/app-screenshot-2.jpeg" alt="Repositories List Screenshot" width="200"/>
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
