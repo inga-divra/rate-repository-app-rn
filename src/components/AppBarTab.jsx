@@ -3,7 +3,7 @@ import Text from './Text'
 
 const styles = StyleSheet.create({
     tab: {
-        marginLeft: 20
+        marginLeft: 12
     }
 })
 

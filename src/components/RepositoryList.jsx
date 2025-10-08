@@ -1,6 +1,9 @@
 import { FlatList, View, StyleSheet } from 'react-native';
 import RepositoryItem from './RepositoryItem';
 const styles = StyleSheet.create({
+    listContainer: {
+
+    },
     separator: {
         height: 10,
     },
@@ -59,7 +62,7 @@ const ItemSeparator = () => <View style={styles.separator} />;
 
 const RepositoryList = () => {
     return (
-        <View>
+        <View style={styles.listContainer}>
             <FlatList
                 data={repositories}
                 renderItem={({ item }) => <RepositoryItem item={item} />}
