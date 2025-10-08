@@ -21,7 +21,7 @@ The project is a React Native application developed step by step through the cou
 
 Here is the current look of the app running on my phone:
 
-<img src="./assets/app-screenshot-1.jpeg" alt="App Screenshot" width="200"/>
+<img src="./assets/images/app-screenshot-1.jpeg" alt="App Screenshot" width="200"/>
 
 ---
 
@@ -54,7 +54,7 @@ Here is the current look of the app running on my phone:
 
 ### Screenshot
 
-<img src="./assets/app-screenshot-2.jpeg" alt="Repositories List Screenshot" width="200"/>
+<img src="./assets/images/app-screenshot-2.jpeg" alt="Repositories List Screenshot" width="200"/>
 
 ---
 
@@ -68,9 +68,20 @@ Here is the current look of the app running on my phone:
 
 ### Screenshot
 
-<img src="./assets/app-screenshot-3.jpeg" alt="App Bar Screenshot" width="200"/>
+<img src="./assets/images/app-screenshot-3.jpeg" alt="App Bar Screenshot" width="200"/>
 
 ---
+
+## Exercise 10.5 Polished Reviewed Repositories List
+
+- Displayed the **repository owner’s avatar** using the `Image` component.
+- Added a **language tag button** with `TouchableOpacity`, background color `theme.colors.primary`, and white bold text.
+- Created a **utils** folder and added a custom `convert.js` function to format large numbers (`21553 → 21.6K`).
+- Styled the layout to **match the design mockup**.
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-4.jpeg" alt="App Bar Screenshot" width="200"/>
 
 ## Upcoming Exercises
 
