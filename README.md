@@ -83,6 +83,21 @@ Here is the current look of the app running on my phone:
 
 <img src="./assets/images/app-screenshot-4.jpeg" alt="App Bar Screenshot" width="200"/>
 
+---
+
+## Exercise 10.6 The Sign-In View and Navigation
+
+- Implemented a new **SignIn.jsx** component with placeholder text.
+- Added a **`/signin` route** in `Main.jsx` using React Router Native.
+- Updated the **AppBar** to include navigation tabs for “Repositories” and “Sign in.”
+- Wrapped tabs with **`<Link>`** to enable navigation between views.
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-5.jpeg" alt="Sign In View Screenshot" width="200"/>
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
