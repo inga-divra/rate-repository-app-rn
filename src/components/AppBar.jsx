@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
         paddingTop: Constants.statusBarHeight + 30,
         backgroundColor: theme.colors.appBarBg,
         paddingBottom: 35,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
 
 });
@@ -18,8 +21,8 @@ const handleOnPress = () => {
 }
 const AppBar = () => {
     return <View style={styles.container}>
-        <AppBarTab onPress={handleOnPress}>Repositories</AppBarTab>
-
+        <AppBarTab to='/' onPress={handleOnPress}>Repositories</AppBarTab>
+        <AppBarTab to='/signin' onPress={handleOnPress}>Sign in</AppBarTab>
     </View>;
 };
 
