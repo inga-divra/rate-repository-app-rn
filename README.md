@@ -98,6 +98,18 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.7 Scrollable App Bar
+
+- Wrapped all **AppBarTab** components inside a `ScrollView` to enable horizontal scrolling.
+- Set the `horizontal` prop to allow side scrolling when tabs exceed screen width.
+- Disabled the default scroll indicator using `showsHorizontalScrollIndicator={false}`.
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-6.jpeg" alt="Scrollable App Bar Screenshot" width="200"/>
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
