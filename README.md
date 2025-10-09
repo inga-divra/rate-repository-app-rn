@@ -124,6 +124,19 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.9 Validating the sign-in form
+
+- Added form validation using **Yup** together with **Formik**.
+- Made both **Username** and **Password** fields required.
+- Displayed red **error messages** under each invalid field.
+- Disabled the **Sign In** button when the form is not valid.
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-8.jpeg" alt="Sign In Form Validation Screenshot" width="200"/>
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.

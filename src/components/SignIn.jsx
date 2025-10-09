@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import { View, TextInput, Pressable, StyleSheet } from 'react-native';
 import Text from './Text';
 import theme from '../../assets/styles/theme'
+import * as yup from 'yup';
 
 const styles = StyleSheet.create({
     formContainer: {
@@ -28,12 +29,31 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 20,
     },
-
+    errorInput: {
+        borderColor: '#d73a4a'
+    },
+    errorText: {
+        color: '#d73a4a',
+        marginBottom: 12
+    }
 });
+
+const signInSchema = yup.object().shape({
+    username: yup
+        .string()
+        .required('Username is required'),
+    password: yup
+        .string()
+        .required('Password is required'),
+})
+
 const SignIn = () => {
     return (
 
         <Formik
+            validationSchema={signInSchema}
+            validateOnMount
+
             initialValues={{ username: '', password: '' }}
 
             onSubmit={(values, { resetForm }) => {
@@ -41,10 +61,11 @@ const SignIn = () => {
                 resetForm();
             }}>
 
-            {({ handleChange, handleSubmit, values }) => (
+            {({ handleChange, handleSubmit, handleBlur, values, errors, touched, isValid }) => (
+
                 <View style={styles.formContainer}>
                     <TextInput
-                        style={styles.formInput}
+                        style={[styles.formInput, touched.username && errors.username && styles.errorInput]}
                         autoCapitalize='none'
                         autoCorrect={false}
                         placeholder='Username'
@@ -52,9 +73,14 @@ const SignIn = () => {
                         value={values.username}
                         returnKeyType='next'
                         onChangeText={handleChange('username')}
+                        onBlur={handleBlur('username')}
                     />
+
+                    {/* Username error */}
+                    {touched.username && errors.username ? <Text style={styles.errorText} fontSize='subheading'>{errors.username}</Text> : null}
+
                     <TextInput
-                        style={styles.formInput}
+                        style={[styles.formInput, touched.password && errors.password && styles.errorInput]}
                         autoCapitalize='none'
                         autoCorrect={false}
                         placeholder='Password'
@@ -64,10 +90,17 @@ const SignIn = () => {
                         returnKeyType='done'
                         onChangeText={handleChange('password')}
                         onSubmitEditing={handleSubmit}
+                        onBlur={handleBlur('password')}
                     />
-                    <Pressable style={styles.formBtn} onPress={handleSubmit}>
+
+                    {/* Password error */}
+                    {touched.password && errors.password ? <Text style={styles.errorText} fontSize='subheading'>{errors.password}</Text> : null}
+
+                    {/* Button */}
+                    <Pressable style={styles.formBtn} onPress={handleSubmit} disabled={!isValid}>
                         <Text color='light' fontWeight='bold' fontSize='subheading'>Sign In</Text>
                     </Pressable>
+
                 </View>
             )}
         </Formik >
