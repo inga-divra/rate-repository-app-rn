@@ -24,10 +24,6 @@ const AppBar = () => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <AppBarTab to='/' onPress={handleOnPress}>Repositories</AppBarTab>
             <AppBarTab to='/signin' onPress={handleOnPress}>Sign in</AppBarTab>
-            <AppBarTab to='/' onPress={handleOnPress}>Repositories</AppBarTab>
-            <AppBarTab to='/signin' onPress={handleOnPress}>Sign in</AppBarTab>
-            <AppBarTab to='/' onPress={handleOnPress}>Repositories</AppBarTab>
-            <AppBarTab to='/signin' onPress={handleOnPress}>Sign in</AppBarTab>
         </ScrollView>
     </View>;
 };

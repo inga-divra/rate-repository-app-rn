@@ -110,6 +110,20 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.8 Sign-In Form with Formik
+
+- Implemented a **sign-in form** in the `SignIn` component using **Formik** for form state management.
+- Added two input fields for **Username** and **Password**, and a **Sign In** button.
+- Logged form values to the console on submit.
+- Used `resetForm()` to clear inputs after submission.
+- Styled the form to match the design mockup.
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-7.jpeg" alt="Sign In Form Screenshot" width="200"/>
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
