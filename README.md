@@ -124,7 +124,7 @@ Here is the current look of the app running on my phone:
 
 ---
 
-## Exercise 10.9 Validating the sign-in form
+## Exercise 10.9 Validating the Sign-in Form
 
 - Added form validation using **Yup** together with **Formik**.
 - Made both **Username** and **Password** fields required.
@@ -134,6 +134,14 @@ Here is the current look of the app running on my phone:
 ### Screenshot
 
 <img src="./assets/images/app-screenshot-8.jpeg" alt="Sign In Form Validation Screenshot" width="200"/>
+
+---
+
+## Exercise 10.10 Platform-Specific Font
+
+- Updated the **theme.js** to use **platform-specific sans-serif fonts**.
+- Added **Roboto** for Android, **Arial** for iOS, and **System** as the default.
+- Used `Platform.select()` from React Native for automatic platform detection.
 
 ---
 
