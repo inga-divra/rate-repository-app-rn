@@ -165,6 +165,14 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.12 Environment Variables
+
+- Converted `app.json` → `app.config.js` and loaded `.env` using **dotenv**
+- Added extra keys for Apollo URIs and accessed them via `Constants.expoConfig.extra`.
+- Updated Apollo Client to select the correct **web** vs. **mob** URI from config.
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
