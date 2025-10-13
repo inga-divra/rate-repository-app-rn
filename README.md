@@ -133,7 +133,7 @@ Here is the current look of the app running on my phone:
 
 ### Screenshot
 
-<img src="./assets/images/app-screenshot-8.jpeg" alt="Sign In Form Validation Screenshot" width="200"/>
+img src="./assets/images/app-screenshot-8.jpeg" alt="Sign In Form Validation Screenshot" width="200"/>
 
 ---
 
@@ -142,6 +142,26 @@ Here is the current look of the app running on my phone:
 - Updated the **theme.js** to use **platform-specific sans-serif fonts**.
 - Added **Roboto** for Android, **Arial** for iOS, and **System** as the default.
 - Used `Platform.select()` from React Native for automatic platform detection.
+
+---
+
+## Exercise 10.11 — Fetching Repositories with Apollo Client
+
+- Replaced **Fetch API** in `useRepositories` with **Apollo Client** + `useQuery`.
+- Added `GET_REPOSITORIES` GraphQL query (fields match UI).
+- Set `fetchPolicy: 'cache-and-network'` to avoid stale data.
+- Wrapped app with **ApolloProvider**.
+- Kept `RepositoryList` unchanged.
+
+**Notes**
+
+- Works on **Web** (`http://localhost:4000/graphql`).
+- Mobile (Expo Go on iPhone) pending due to runtime/network quirks; will revisit later.
+- Spent **>8h** aligning versions (Expo 54, React 18, RN 0.76, `@apollo/client` 3.x, `graphql` 16).
+
+### Screenshot
+
+img src="./assets/images/app-screenshot-9.jpeg" alt="Sign In Form Validation Screenshot" width="200"/>
 
 ---
 
