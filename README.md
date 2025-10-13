@@ -133,7 +133,7 @@ Here is the current look of the app running on my phone:
 
 ### Screenshot
 
-img src="./assets/images/app-screenshot-8.jpeg" alt="Sign In Form Validation Screenshot" width="200"/>
+<img src="./assets/images/app-screenshot-8.jpeg" alt="App Bar Screenshot" width="200"/>
 
 ---
 
@@ -145,7 +145,7 @@ img src="./assets/images/app-screenshot-8.jpeg" alt="Sign In Form Validation Scr
 
 ---
 
-## Exercise 10.11 — Fetching Repositories with Apollo Client
+## Exercise 10.11 Fetching Repositories with Apollo Client
 
 - Replaced **Fetch API** in `useRepositories` with **Apollo Client** + `useQuery`.
 - Added `GET_REPOSITORIES` GraphQL query (fields match UI).
@@ -161,7 +161,7 @@ img src="./assets/images/app-screenshot-8.jpeg" alt="Sign In Form Validation Scr
 
 ### Screenshot
 
-img src="./assets/images/app-screenshot-9.jpeg" alt="Sign In Form Validation Screenshot" width="200"/>
+<img src="./assets/images/app-screenshot-9.jpeg" alt="App Bar Screenshot" width="200"/>
 
 ---
 
