@@ -195,7 +195,7 @@ Here is the current look of the app running on my phone:
 
 ---
 
-## Exercise 10.16: Sign Out
+## Exercise 10.16 Sign Out
 
 - Added **Sign out** feature using the `me` query.
 - Shows **Sign in** or **Sign out** tab depending on user login state.
@@ -203,7 +203,7 @@ Here is the current look of the app running on my phone:
 
 ### Screenshot
 
-<img src="./assets/images/app-screenshot-10.jpeg" alt="Sign Out feature" width="600"/>
+<img src="./assets/images/app-screenshot-10.jpeg" alt="Sign Out feature" width="500"/>
 
 ---
 
