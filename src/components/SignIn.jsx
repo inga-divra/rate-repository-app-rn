@@ -4,6 +4,7 @@ import Text from './Text';
 import theme from '../../assets/styles/theme'
 import * as yup from 'yup';
 import useSignIn from '../hooks/useSignIn';
+import { useNavigate } from 'react-router-native';
 
 const styles = StyleSheet.create({
     formContainer: {
@@ -50,14 +51,16 @@ const signInSchema = yup.object().shape({
 
 const SignIn = () => {
     const [signIn] = useSignIn()
+    const nav = useNavigate()
 
     const onSubmit = async (values, { resetForm }) => {
         const { username, password } = values;
 
         try {
-            const { data } = await signIn({ username, password });
+            const data = await signIn({ username, password });
             console.log(data);
             resetForm()
+            nav('/')
         } catch (e) {
             console.log(e);
         }
