@@ -195,6 +195,18 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.16: Sign Out
+
+- Added **Sign out** feature using the `me` query.
+- Shows **Sign in** or **Sign out** tab depending on user login state.
+- On Sign out → removes token, resets Apollo cache, and redirects to home page.
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-10.jpeg" alt="Sign Out feature" width="200"/>
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
