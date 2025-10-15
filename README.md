@@ -188,6 +188,13 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.15 Storing the Access Token Step2
+
+- Updated **`useSignIn`** to save the user’s **access token** and reset Apollo cache.
+- Added redirect to the main view after successful login using **`useNavigate`**.
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
