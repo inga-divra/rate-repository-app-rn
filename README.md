@@ -181,6 +181,13 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.14 Storing the Access Token Step1
+
+- Created **`authStorage.js`** in the `utils` folder.
+- Implemented methods to **get**, **save** and **remove** the user's access token using **AsyncStorage**.
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
