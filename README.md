@@ -203,7 +203,7 @@ Here is the current look of the app running on my phone:
 
 ### Screenshot
 
-<img src="./assets/images/app-screenshot-10.jpeg" alt="Sign Out feature" width="200"/>
+<img src="./assets/images/app-screenshot-10.jpeg" alt="Sign Out feature" width="600"/>
 
 ---
 
