@@ -3,12 +3,11 @@ import { ApolloProvider } from '@apollo/client';
 import { NativeRouter } from 'react-router-native';
 import createApolloClient from './src/utils/apolloClient';
 import Main from './src/components/Main';
-import Constants from 'expo-constants';
+import AuthStorage from './src/utils/authStorage';
 
-const apolloClient = createApolloClient();
-
-export default function App() {
-  console.log(Constants.expoConfig);
+const authStorage = new AuthStorage();
+const apolloClient = createApolloClient(authStorage);
+const App = () => {
   return (
     <NativeRouter>
       <ApolloProvider client={apolloClient}>
@@ -17,4 +16,6 @@ export default function App() {
       </ApolloProvider>
     </NativeRouter>
   );
-}
+};
+
+export default App;
