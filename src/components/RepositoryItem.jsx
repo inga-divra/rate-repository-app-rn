@@ -88,6 +88,7 @@ const RepositoryItem = ({ item }) => {
                         {item.ratingAverage}
                     </Text>
                     <Text>Rating</Text>
+                    {/* Github btn */}
                 </View>
             </View>
 
