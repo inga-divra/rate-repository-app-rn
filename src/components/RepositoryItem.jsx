@@ -2,6 +2,7 @@ import { View, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import Text from './Text'
 import theme from '../../assets/styles/theme'
 import convert from '../utils/convert'
+import * as Linking from 'expo-linking';
 
 const styles = StyleSheet.create({
     profileContainer: {
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     },
     profileBtn: {
         backgroundColor: theme.colors.primary,
-        borderRadius: 6,
+        borderRadius: 4,
         paddingVertical: 6,
         paddingHorizontal: 12,
         alignSelf: 'flex-start',
@@ -45,10 +46,26 @@ const styles = StyleSheet.create({
     statsInfo: {
         display: 'flex',
         alignItems: 'center',
+        marginBottom: 12
+    },
+    BtnLink: {
+        backgroundColor: theme.colors.primary,
+        width: '100%',
+        borderRadius: 4,
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+        alignItems: 'center'
     }
 });
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, githubBtn = false }) => {
+
+    //Handle Linking to Github
+    const handleGithubLink = () => {
+        if (item.url) {
+            Linking.openURL(item.url)
+        }
+    }
     return (
         <View style={styles.profileContainer}>
             {/* Image and profile info */}
@@ -59,7 +76,7 @@ const RepositoryItem = ({ item }) => {
                     <Text color='textPrimary' fontWeight='bold' fontSize='subheading'>{item.fullName}</Text>
                     <Text>{item.description}</Text>
                     <TouchableOpacity style={styles.profileBtn}>
-                        <Text color='light' fontWeight='bold' fontSize='subheading'>{item.language}</Text>
+                        <Text color='light' fontSize='subheading'>{item.language}</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -88,10 +105,12 @@ const RepositoryItem = ({ item }) => {
                         {item.ratingAverage}
                     </Text>
                     <Text>Rating</Text>
-                    {/* Github btn */}
                 </View>
             </View>
-
+            {/* Github btn */}
+            {githubBtn && <TouchableOpacity onPress={handleGithubLink} style={styles.BtnLink}>
+                <Text color='light' fontWeight='bold' fontSize='subheading'>Open in Github</Text>
+            </TouchableOpacity>}
 
         </View >
     )

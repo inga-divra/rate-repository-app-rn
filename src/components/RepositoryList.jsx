@@ -1,7 +1,10 @@
-import { FlatList, View, StyleSheet } from 'react-native';
+import { FlatList, View, StyleSheet, Pressable } from 'react-native';
 import useRepositories from '../hooks/useRepositories';
 import RepositoryItem from './RepositoryItem';
 import Text from './Text'
+import { useNavigate } from 'react-router-native';
+
+
 const styles = StyleSheet.create({
     listContainer: {
 
@@ -15,12 +18,17 @@ const ItemSeparator = () => <View style={styles.separator} />;
 
 const RepositoryList = () => {
     const { repositories, loading, error } = useRepositories();
+    const nav = useNavigate()
+
+    const handleOpenSingleRepo = (id) => {
+        nav(`/repository/${id}`)
+    }
 
     if (loading) {
-        <Text>Loading...</Text>
+        return <Text>Loading...</Text>
     }
     if (error) {
-        <Text>{String(error.message)}</Text>
+        return <Text>{String(error.message)}</Text>
     }
     // Get the nodes from the edges array
     const repositoryNodes = repositories
@@ -31,7 +39,9 @@ const RepositoryList = () => {
         <View style={styles.listContainer}>
             <FlatList
                 data={repositoryNodes}
-                renderItem={({ item }) => <RepositoryItem item={item} />}
+                renderItem={({ item }) => <Pressable onPress={() => handleOpenSingleRepo(item.id)}>
+                    <RepositoryItem item={item} />
+                </Pressable>}
                 keyExtractor={item => item.id}
                 ItemSeparatorComponent={ItemSeparator}
             />
