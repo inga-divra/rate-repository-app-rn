@@ -6,9 +6,6 @@ import { useNavigate } from 'react-router-native';
 
 
 const styles = StyleSheet.create({
-    listContainer: {
-
-    },
     separator: {
         height: 10,
     },
@@ -36,7 +33,7 @@ const RepositoryList = () => {
         : [];
 
     return (
-        <View style={styles.listContainer}>
+        <View >
             <FlatList
                 data={repositoryNodes}
                 renderItem={({ item }) => <Pressable onPress={() => handleOpenSingleRepo(item.id)}>

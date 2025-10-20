@@ -52,6 +52,7 @@ export const GET_SINGLE_REPO = gql`
             user {
               id
               username
+            }
           }
         }
       }
