@@ -207,6 +207,19 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.20 Repository's Review List
+
+- Implemented **Single Repository view** displaying repository details and user reviews.
+- Added `reviews` field to **GET_SINGLE_REPO** query.
+- Created **SingleRepo** component with formatted date (`date-fns`) and circular rating badge.
+- Used **FlatList** with separators for a clean layout.
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-11.jpeg" alt="Repository review list" width="500"/>
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
