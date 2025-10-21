@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-native'
 const styles = StyleSheet.create({
     tab: {
         marginLeft: 12,
-
+        marginRight: 12
     }
 })
 

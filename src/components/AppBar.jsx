@@ -17,9 +17,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     signOutBtn: {
-        marginLeft: 12,
         fontWeight: '300',
-    }
+    },
+
 });
 
 
@@ -48,7 +48,9 @@ const AppBar = () => {
     return <View style={styles.container}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
 
-            <AppBarTab to='/' onPress={handleOnPress}>Repositories</AppBarTab>
+            <AppBarTab style={styles.navMenu} to='/' onPress={handleOnPress}>Repositories</AppBarTab>
+
+            {userLoggedIn && <AppBarTab to='/create-review' onPress={handleOnPress}>Create a review</AppBarTab>}
 
             {userLoggedIn ?
 
@@ -56,7 +58,7 @@ const AppBar = () => {
                     <Text color='light' style={styles.signOutBtn} fontSize='subheading'>Sign out</Text>
                 </Pressable> :
 
-                <AppBarTab to='/signin' onPress={handleOnPress}>Sign in</AppBarTab>}
+                <AppBarTab style={styles.navMenu} to='/signin' onPress={handleOnPress}>Sign in</AppBarTab>}
 
         </ScrollView>
     </View>;
