@@ -16,7 +16,7 @@ const ItemSeparator = () => <View style={styles.separator} />;
 
 const SingleRepo = () => {
     const { id } = useParams()
-    const { loading, error, data } = useQuery(GET_SINGLE_REPO, { variables: { id } })
+    const { loading, error, data } = useQuery(GET_SINGLE_REPO, { variables: { id }, fetchPolicy: 'cache-and-network' })
 
     if (loading) {
         return <Text>Loading...</Text>

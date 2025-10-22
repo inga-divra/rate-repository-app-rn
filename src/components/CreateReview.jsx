@@ -4,8 +4,8 @@ import Text from './Text';
 import theme from '../../assets/styles/theme'
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-native';
-//import { CREATE_REVIEW } from '../graphql/queries';
-//import { useMutation } from '@apollo/client';
+import { CREATE_REVIEW } from '../graphql/mutations';
+import { useMutation } from '@apollo/client';
 
 const styles = StyleSheet.create({
     formContainer: {
@@ -60,14 +60,22 @@ const reviewSchema = yup.object().shape({
 })
 
 const CreateReview = () => {
+    const [createReview] = useMutation(CREATE_REVIEW)
     const nav = useNavigate()
 
     const onSubmit = async (values, { resetForm }) => {
+        const { ownerName, repositoryName, rating, text } = values;
 
         try {
-
+            const { data } = await createReview({
+                variables: { ownerName: ownerName, repositoryName: repositoryName, rating: Number(rating), text: text }
+            });
+            const repoId = data?.createReview?.repositoryId;
             resetForm()
-            nav('/')
+            if (repoId) {
+                nav(`/repository/${repoId}`)
+            }
+
         } catch (e) {
             console.log(e);
         }
@@ -140,6 +148,7 @@ const CreateReview = () => {
                         onChangeText={handleChange('text')}
                         onBlur={handleBlur('text')}
                         textAlignVertical='top'
+
                     />
 
                     {/* Button */}

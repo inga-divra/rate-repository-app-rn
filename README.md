@@ -220,6 +220,25 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.21 Create Review Form
+
+- Implemented **review creation form** using `Formik` and `Yup`.
+- Added validation:
+  - Repository owner name – required string
+  - Repository name – required string
+  - Rating – required number between 0 and 100
+  - Review – optional string
+- Used Apollo `useMutation` with **CREATE_REVIEW** to send data.
+- After submission, redirects to the created repository view using `repositoryId`.
+- Added “Create a review” tab to the AppBar (visible only when logged in).
+- Applied `fetchPolicy: 'cache-and-network'` to refresh repository data.
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-12.jpeg" alt="Create review form" width="500"/>
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
