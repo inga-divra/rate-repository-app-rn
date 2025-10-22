@@ -216,7 +216,7 @@ Here is the current look of the app running on my phone:
 
 ### Screenshot
 
-<img src="./assets/images/app-screenshot-11.jpeg" alt="Repository review list" width="500"/>
+<img src="./assets/images/app-screenshot-11.jpeg" alt="Repository review list" width="300"/>
 
 ---
 
@@ -235,7 +235,7 @@ Here is the current look of the app running on my phone:
 
 ### Screenshot
 
-<img src="./assets/images/app-screenshot-12.jpeg" alt="Create review form" width="500"/>
+<img src="./assets/images/app-screenshot-12.jpeg" alt="Create review form" width="300"/>
 
 ---
 
