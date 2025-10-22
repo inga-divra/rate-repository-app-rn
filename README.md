@@ -236,6 +236,8 @@ Here is the current look of the app running on my phone:
 ### Screenshot
 
 <img src="./assets/images/app-screenshot-12.jpeg" alt="Create review form" width="300"/>
+<img src="./assets/images/app-screenshot-13.jpeg" alt="Create review form" width="300"/>
+<img src="./assets/images/app-screenshot-14.jpeg" alt="Create review form" width="300"/>
 
 ---
 
