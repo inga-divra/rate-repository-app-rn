@@ -4,6 +4,9 @@ import Text from './Text';
 import theme from '../../assets/styles/theme'
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-native';
+import { CREATE_USER } from '../graphql/mutations';
+import { useMutation } from '@apollo/client';
+import useSignIn from '../hooks/useSignIn';
 
 const styles = StyleSheet.create({
     formContainer: {
@@ -59,11 +62,15 @@ const signUpSchema = yup.object().shape({
 })
 
 const SignUp = () => {
+    const [createUser] = useMutation(CREATE_USER)
+    const [signIn] = useSignIn()
     const nav = useNavigate()
 
     const onSubmit = async (values, { resetForm }) => {
-
+        const { username, password } = values;
         try {
+            await createUser({ variables: { username, password } })
+            await signIn({ username, password })
             resetForm()
             nav('/')
         } catch (e) {
