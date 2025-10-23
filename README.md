@@ -241,6 +241,27 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.22 Sign Up Form
+
+- Implemented **user registration form** using `Formik` and `Yup`.
+- Added validation rules:
+  - Username - required string, 5–30 characters
+  - Password - required string, 5–50 characters
+  - Password confirmation - must match the password
+- Created `CREATE_USER` mutation and placed it in `mutations.js`.
+- Used Apollo `useMutation` to register a new user.
+- After successful registration, automatically signed in the new user using `useSignIn` hook.
+- Redirected to the home page after successful sign-up.
+- Added a **“Sign up”** tab to the AppBar (visible only when user is not logged in).
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-15.jpeg" alt="Sign up form" width="300"/>
+
+<img src="./assets/images/app-screenshot-16.jpeg" alt="Sign up form" width="300"/>
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
