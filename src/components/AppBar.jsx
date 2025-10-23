@@ -60,6 +60,8 @@ const AppBar = () => {
 
                 <AppBarTab style={styles.navMenu} to='/signin' onPress={handleOnPress}>Sign in</AppBarTab>}
 
+            {!userLoggedIn && <AppBarTab to='/signup' onPress={handleOnPress}>Sign Up</AppBarTab>}
+
         </ScrollView>
     </View>;
 };
