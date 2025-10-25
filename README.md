@@ -262,6 +262,25 @@ Here is the current look of the app running on my phone:
 
 ---
 
+## Exercise 10.23 Sorting the Reviewed Repositories List
+
+Since I have Expo version issues on my iPhone, I added the **repository sorting selector** also for the **web browser** to test the feature.  
+I didn’t have time to install a simulator - this last part of React Native course already takes more than 60 hours.
+
+- Implemented **sorting feature** for repositories list.
+- Added a selection menu (`Picker` for mobile, `<select>` for web).
+- Sorting options:
+  - **Latest repositories** – ordered by creation date (default).
+  - **Highest rated repositories** – ordered by rating, descending.
+  - **Lowest rated repositories** – ordered by rating, ascending.
+- Used `useState` to store selected order.
+- Used `useEffect` to update query variables (`orderBy`, `orderDirection`).
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-17.jpeg" alt="Sorting menu" width="300"/>  
+<img src="./assets/images/app-screenshot-18.jpeg" alt="Repositories sorted" width="300"/>
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
