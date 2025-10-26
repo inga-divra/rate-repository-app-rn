@@ -3,18 +3,41 @@ import useRepositories from '../hooks/useRepositories';
 import RepositoryItem from './RepositoryItem';
 import Text from './Text'
 import { useNavigate } from 'react-router-native';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
+import { useDebounce } from 'use-debounce';
+import { TextInput } from 'react-native';
+import theme from '../../assets/styles/theme';
+
+
 
 
 const styles = StyleSheet.create({
     separator: {
         height: 10,
     },
+    listHeaderContainer: {
+        backgroundColor: theme.colors.textSecondary,
+        paddingVertical: 12,
+        paddingHorizontal: 12,
+    },
     webSelect: {
         width: '100%',
         padding: 8,
-        fontSize: 16
+        fontSize: 16,
+        borderRadius: 6,
+        backgroundColor: 'white',
+        color: theme.colors.textSecondary,
+        fontWeight: 500
+    },
+    searchRepoInput: {
+        marginBottom: 20,
+        backgroundColor: 'white',
+        padding: 10,
+        borderRadius: 6,
+        color: theme.colors.textSecondary,
+        fontSize: 16,
+
     }
 });
 
@@ -49,8 +72,12 @@ const SelectRepo = ({ value, onChange }) => {
     </View>
 
 }
-const RepositoryList = () => {
 
+
+
+const RepositoryList = () => {
+    const [searchText, setSearchText] = useState('')
+    const [debouncedSearch] = useDebounce(searchText, 500)
     const [order, setOrder] = useState('LATEST')
     const [repoVariables, setRepoVariables] = useState({
         orderBy: 'CREATED_AT',
@@ -61,23 +88,41 @@ const RepositoryList = () => {
     useEffect(() => {
         if (order === 'HIGHEST') {
             setRepoVariables({ orderBy: 'RATING_AVERAGE', orderDirection: 'DESC' })
-        }
-        if (order === 'LOWEST') {
+        } else if (order === 'LOWEST') {
             setRepoVariables({ orderBy: 'RATING_AVERAGE', orderDirection: 'ASC' })
         } else {
             setRepoVariables({ orderBy: 'CREATED_AT', orderDirection: 'DESC' })
         }
     }, [order])
 
+    /* DEBOUNCED SEARCH */
+    useEffect(() => {
+        setRepoVariables({
+            orderBy: repoVariables.orderBy,
+            orderDirection: repoVariables.orderDirection,
+            searchKeyword: debouncedSearch
+        })
+    }, [debouncedSearch])
 
 
     const { repositories, loading, error } = useRepositories(repoVariables);
     const nav = useNavigate()
-
-
     const handleOpenSingleRepo = (id) => {
         nav(`/repository/${id}`)
     }
+
+
+
+
+    /* LISTHEADER with useMemo */
+    const ListHeader = useMemo(() => {
+        return <View style={styles.listHeaderContainer}>
+            <TextInput value={searchText} onChangeText={setSearchText} placeholder='Search repository...' style={styles.searchRepoInput} />
+            <SelectRepo value={order} onChange={setOrder} style={styles.webSelect} />
+        </View>
+    }, [searchText, order])
+    /*  */
+
 
     if (loading) {
         return <Text>Loading...</Text>
@@ -99,7 +144,7 @@ const RepositoryList = () => {
                 </Pressable>}
                 keyExtractor={item => item.id}
                 ItemSeparatorComponent={ItemSeparator}
-                ListHeaderComponent={<SelectRepo value={order} onChange={setOrder} />}
+                ListHeaderComponent={ListHeader}
             />
         </View>
     );
