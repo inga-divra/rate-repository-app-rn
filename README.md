@@ -281,6 +281,19 @@ I didn’t have time to install a simulator - this last part of React Native cou
 <img src="./assets/images/app-screenshot-17.jpeg" alt="Sorting menu" width="300"/>  
 <img src="./assets/images/app-screenshot-18.jpeg" alt="Repositories sorted" width="300"/>
 
+## Exercise 10.24 Filtering the Reviewed Repositories List
+
+This task was very challenging. I struggled to understand the older class component solution from the course instructions, so I decided to use a modern React Hooks approach instead by combining **`useMemo`** with **`use-debounce`**, I managed to prevent the input from losing focus while typing and implemented smooth filtering.
+
+- Implemented **search filtering** using the `searchKeyword` argument in the GraphQL query.
+- Added a **search input** inside the `FlatList` header.
+- Used **`useDebounce`** to limit unnecessary API requests (500ms delay).
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-19.jpeg" alt="Repository search filter" width="300"/>  
+<img src="./assets/images/app-screenshot-20.jpeg" alt="Filtered repositories" width="300"/>
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
