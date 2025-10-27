@@ -32,7 +32,7 @@ const MyReviews = () => {
         <View >
             <FlatList
                 data={reviewNodes}
-                renderItem={({ item }) => <SingleReview item={item} />}
+                renderItem={({ item }) => <SingleReview item={item} showRepoName={true} />}
                 keyExtractor={item => item.id}
                 ItemSeparatorComponent={ItemSeparator}
             />

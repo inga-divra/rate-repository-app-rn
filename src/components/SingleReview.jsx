@@ -1,16 +1,20 @@
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Pressable } from 'react-native'
 import Text from './Text'
 import theme from '../../assets/styles/theme'
 import { format } from "date-fns";
 
 
 const styles = StyleSheet.create({
-    container: {
+    reviewContainer: {
+        backgroundColor: 'white',
+        paddingVertical: 16,
+        paddingHorizontal: 16,
+    },
+    reviewInfoContainer: {
         flexDirection: 'row',
         gap: 16,
-        backgroundColor: 'white',
-        paddingVertical: 12,
-        paddingHorizontal: 16,
+        marginBottom: 16
+
     },
     separator: {
         height: 10,
@@ -32,24 +36,57 @@ const styles = StyleSheet.create({
     },
     formatDate: {
         marginBottom: 8
+    },
+    btnContainer: {
+        flexDirection: 'row',
+        width: '100%',
+        alignItems: 'center'
+    },
+    btn: {
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: theme.colors.error,
+        paddingVertical: 16,
+        paddingHorizontal: 16,
+        marginHorizontal: 6,
+        borderRadius: 6
     }
 });
 
 
-const SingleReview = ({ item }) => {
+const SingleReview = ({ item, onViewRepo, onDeleteReview, showRepoName }) => {
     const formatDate = format(new Date(item?.createdAt), "dd.MM.yyyy");
+
+    /* Title */
+    const singleReviewTitle = showRepoName ? item?.repository?.fullName : item?.user?.username
+
     return (
-        <View style={styles.container}>
-            <View style={styles.ratingNum}>
-                <Text style={styles.ratingNumText} fontWeight='bold' fontSize='subheading'>{item?.rating}</Text>
+        <View style={styles.reviewContainer}>
+            <View style={styles.reviewInfoContainer}>
+                <View style={styles.ratingNum}>
+                    <Text style={styles.ratingNumText} fontWeight='bold' fontSize='subheading'>{item?.rating}</Text>
+                </View>
+                <View style={styles.ratingInfo}>
+                    <Text color='textPrimary' fontWeight='bold' fontSize='subheading'>{singleReviewTitle}</Text>
+                    <Text style={styles.formatDate} color='textSecondary' fontSize='subheading'>{formatDate}</Text>
+                    <Text>{item?.text}</Text>
+                </View>
             </View>
-            <View style={styles.ratingInfo}>
-                <Text color='textPrimary' fontWeight='bold' fontSize='subheading'>{item?.user?.username}</Text>
-                <Text style={styles.formatDate} color='textSecondary' fontSize='subheading'>{formatDate}</Text>
-                <Text>{item?.text}</Text>
+
+            {/* Buttons View & Delete */}
+            {showRepoName && (<View style={styles.btnContainer}>
+                <Pressable onPress={() => onViewRepo(item.repositoryId)} style={[styles.btn, { backgroundColor: '#0366d6' }]} >
+                    <Text color='light' fontWeight="bold">View repository</Text>
+                </Pressable>
+                <Pressable onPress={() => onDeleteReview(item.id)} style={styles.btn}>
+                    <Text color='light' fontWeight="bold">Delete review</Text>
+                </Pressable>
             </View>
-        </View>
-    )
-}
+            )
+            }
+
+        </View >
+    );
+};
 
 export default SingleReview

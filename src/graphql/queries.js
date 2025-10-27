@@ -81,7 +81,14 @@ export const GET_CURRENT_USER = gql`
             rating
             createdAt
             repositoryId
-            userId
+            user {
+              id
+              username
+            }
+            repository {
+              id
+              fullName
+            }
           }
         }
       }
