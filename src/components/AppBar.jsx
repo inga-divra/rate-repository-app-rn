@@ -51,6 +51,7 @@ const AppBar = () => {
             <AppBarTab style={styles.navMenu} to='/' onPress={handleOnPress}>Repositories</AppBarTab>
 
             {userLoggedIn && <AppBarTab to='/create-review' onPress={handleOnPress}>Create a review</AppBarTab>}
+            {userLoggedIn && <AppBarTab to='/my-reviews' onPress={handleOnPress}>My reviews</AppBarTab>}
 
             {userLoggedIn ?
 
