@@ -294,6 +294,19 @@ This task was very challenging. I struggled to understand the older class compon
 <img src="./assets/images/app-screenshot-19.jpeg" alt="Repository search filter" width="300"/>  
 <img src="./assets/images/app-screenshot-20.jpeg" alt="Filtered repositories" width="300"/>
 
+---
+
+## Exercise 10.25 The User´s Reviews View
+
+- Created a **GraphQL query** using the `includeReviews` argument to fetch user reviews.
+- Added **`/my-reviews`** route and navigation tab in the AppBar.
+- Created a custom hook **`useCurrentUserReviews`** for reviews fetching.
+- Displayed reviews with **`FlatList`** and a separate **`SingleReview`** component for each item.
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-21.jpeg" alt="My reviews list" width="300"/>
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
