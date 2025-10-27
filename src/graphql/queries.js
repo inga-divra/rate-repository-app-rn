@@ -68,7 +68,7 @@ export const GET_SINGLE_REPO = gql`
   }
 `;
 
-const GET_CURRENT_USER = gql`
+export const GET_CURRENT_USER = gql`
   query getCurrentUser($includeReviews: Boolean = false) {
     me {
       id
