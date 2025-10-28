@@ -307,6 +307,31 @@ This task was very challenging. I struggled to understand the older class compon
 
 <img src="./assets/images/app-screenshot-21.jpeg" alt="My reviews list" width="300"/>
 
+---
+
+## Exercise 10.26 Review Actions
+
+- Implemented **`DELETE_REVIEW` mutation**.
+- Added **MyReviews** screen - each review includes View and Delete button.
+- Added confirmation dialog before deleting:
+  - On **web**: `window.confirm`
+  - On **mobile (RN)**: `Alert.alert`
+- After confirming deletion:
+  - The review is removed
+  - The list updates using **`refetch()`**
+
+> ⚠️ Due to version conflicts between Expo and course dependencies, I could not test the Alert on iPhone.  
+> I tested the delete confirmation and refetch logic on **web**, and the feature works correctly.  
+> I’ve already spent a lot of time during the course fixing version issues to connect the frontend and backend, so I don’t want to break the setup again - I just want to finish the exercises.
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-22.jpeg" alt="Delete review flow" width="300"/>
+
+<img src="./assets/images/app-screenshot-23.jpeg" alt="Delete review flow" width="300"/>
+
+---
+
 ## Upcoming Exercises
 
 I will keep documenting my progress here for each exercise.
