@@ -312,7 +312,7 @@ This task was very challenging. I struggled to understand the older class compon
 ## Exercise 10.26 Review Actions
 
 - Implemented **`DELETE_REVIEW` mutation**.
-- Added **MyReviews** screen - each review includes View and Delete button.
+- Updated **MyReviews** screen - each review includes View and Delete button.
 - Added confirmation dialog before deleting:
   - On **web**: `window.confirm`
   - On **mobile (RN)**: `Alert.alert`
