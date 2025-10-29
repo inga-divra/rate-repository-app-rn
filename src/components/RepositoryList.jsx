@@ -80,6 +80,7 @@ const RepositoryList = () => {
     const [debouncedSearch] = useDebounce(searchText, 500)
     const [order, setOrder] = useState('LATEST')
     const [repoVariables, setRepoVariables] = useState({
+        first: 8,
         orderBy: 'CREATED_AT',
         orderDirection: 'DESC'
     })
@@ -100,12 +101,13 @@ const RepositoryList = () => {
         setRepoVariables({
             orderBy: repoVariables.orderBy,
             orderDirection: repoVariables.orderDirection,
-            searchKeyword: debouncedSearch
+            searchKeyword: debouncedSearch,
+            first: 8,
         })
     }, [debouncedSearch])
 
 
-    const { repositories, loading, error } = useRepositories(repoVariables);
+    const { repositories, loading, error, fetchMore } = useRepositories(repoVariables);
     const nav = useNavigate()
     const handleOpenSingleRepo = (id) => {
         nav(`/repository/${id}`)
@@ -124,7 +126,7 @@ const RepositoryList = () => {
     /*  */
 
 
-    if (loading) {
+    if (loading && !repositories) {
         return <Text>Loading...</Text>
     }
     if (error) {
@@ -134,7 +136,9 @@ const RepositoryList = () => {
     const repositoryNodes = repositories
         ? repositories.edges.map(edge => edge.node)
         : [];
-
+    const onEndReach = () => {
+        fetchMore();
+    };
     return (
         <View >
             <FlatList
@@ -145,6 +149,8 @@ const RepositoryList = () => {
                 keyExtractor={item => item.id}
                 ItemSeparatorComponent={ItemSeparator}
                 ListHeaderComponent={ListHeader}
+                onEndReached={onEndReach}
+                onEndReachedThreshold={0.5}
             />
         </View>
     );

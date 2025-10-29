@@ -2,12 +2,23 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { Platform } from 'react-native';
 import Constants from 'expo-constants';
 import { setContext } from '@apollo/client/link/context';
+import { relayStylePagination } from '@apollo/client/utilities';
 
 const { apolloUriWeb, apolloUriMob } = Constants.expoConfig.extra;
 
 const uri = Platform.OS === 'web' ? apolloUriWeb : apolloUriMob;
 
 const httpLink = createHttpLink({ uri });
+
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        repositories: relayStylePagination(),
+      },
+    },
+  },
+});
 
 const createApolloClient = (authStorage) => {
   const authLink = setContext(async (_, { headers }) => {
@@ -28,7 +39,7 @@ const createApolloClient = (authStorage) => {
   });
   return new ApolloClient({
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
+    cache,
   });
 };
 
