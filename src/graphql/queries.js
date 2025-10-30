@@ -47,7 +47,7 @@ export const ME = gql`
 `;
 
 export const GET_SINGLE_REPO = gql`
-  query GetSingleRepo($id: ID!) {
+  query GetSingleRepo($id: ID!, $first: Int, $after: String) {
     repository(id: $id) {
       id
       fullName
@@ -59,7 +59,7 @@ export const GET_SINGLE_REPO = gql`
       reviewCount
       ownerAvatarUrl
       url
-      reviews {
+      reviews(first: $first, after: $after) {
         edges {
           node {
             id
@@ -71,6 +71,12 @@ export const GET_SINGLE_REPO = gql`
               username
             }
           }
+          cursor
+        }
+        pageInfo {
+          endCursor
+          startCursor
+          hasNextPage
         }
       }
     }

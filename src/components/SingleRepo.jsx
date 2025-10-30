@@ -16,7 +16,27 @@ const ItemSeparator = () => <View style={styles.separator} />;
 
 const SingleRepo = () => {
     const { id } = useParams()
-    const { loading, error, data } = useQuery(GET_SINGLE_REPO, { variables: { id }, fetchPolicy: 'cache-and-network' })
+    const { loading, error, data, fetchMore } = useQuery(GET_SINGLE_REPO, { variables: { id, first: 3 }, fetchPolicy: 'cache-and-network' })
+
+
+    /* HANDLE FETCH MORE */
+    const handleFetchMore = () => {
+        const canFetchMore = !loading && data?.repository.reviews.pageInfo.hasNextPage;
+
+        if (!canFetchMore) {
+            return;
+        }
+
+        fetchMore({
+            variables: {
+                id,
+                first: 3,
+                after: data.repository.reviews.pageInfo.endCursor,
+            },
+        });
+    };
+
+
 
     if (loading) {
         return <Text>Loading...</Text>
@@ -29,14 +49,18 @@ const SingleRepo = () => {
     const reviewNodes = singleRepo.reviews
         ? singleRepo.reviews.edges.map(edge => edge.node)
         : [];
+
+
     return (
-        <View>
+        <View style={{ flex: 1 }}>
             <RepositoryItem item={singleRepo} githubBtn ItemSeparatorComponent={ItemSeparator} />
             <FlatList
                 data={reviewNodes}
                 renderItem={({ item }) => <SingleReview item={item} />}
                 keyExtractor={item => item.id}
                 ItemSeparatorComponent={ItemSeparator}
+                onEndReached={handleFetchMore}
+                onEndReachedThreshold={0.5}
             />
         </View>
     )
