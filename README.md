@@ -332,6 +332,16 @@ This task was very challenging. I struggled to understand the older class compon
 
 ---
 
-## Upcoming Exercises
+## Exercise 10.27 — Infinite Scroll for Repository Reviews
 
-I will keep documenting my progress here for each exercise.
+Added infinite scrolling to the single repository reviews list.  
+Updated `GET_SINGLE_REPO` query to support `first` and `after` variables.  
+Used `fetchMore()` with `pageInfo.endCursor` to load more reviews when reaching the end.
+
+> ⚠️ To test on **web**, I wrapped the main container with `flex: 1`. Infinite scroll works correctly and new reviews load dynamically while scrolling.
+
+### Screenshot
+
+<img src="./assets/images/app-screenshot-24.jpeg" alt="Delete review flow" width="300"/>
+
+<img src="./assets/images/app-screenshot-25.jpeg" alt="Delete review flow" width="300"/>
